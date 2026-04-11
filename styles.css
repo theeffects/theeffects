@@ -408,7 +408,7 @@ img {
 .services h2 {
     text-align: center;
     font-size: 2.2rem;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     color: #4a3a32;
     font-weight: 700;
     margin-top: 0;
@@ -420,72 +420,72 @@ img {
     gap: 30px;
 }
 
-/* === АНИМАЦИЯ ПУЛЬСАЦИИ ТЕНИ (как у Telegram-иконки) === */
-@keyframes pulse-shadow {
-    0%, 100% {
-        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    }
-    50% {
-        box-shadow: 0 14px 35px rgba(122, 95, 79, 0.35); /* Цвет акцента + больше размытие */
-    }
-}
-
-.service-card {
-    background: rgba(255, 255, 255, 0.85);
-    border-radius: 16px;
-    padding: 30px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    backdrop-filter: blur(4px);
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid rgba(212, 200, 192, 0.3);
-    
-    /* Пульсация тени — 2 секунды, бесконечно, плавно */
-    animation: pulse-shadow 2s ease-in-out infinite;
-    
-    /* Оптимизация для мобильных */
-    will-change: box-shadow;
-}
-
-/* При наведении — останавливаем пульсацию и поднимаем карточку */
-.service-card:hover {
-    animation-play-state: paused;
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
-}
-
-/* === АНИМАЦИЯ ПУЛЬСАЦИИ ДЛЯ КАРТОЧЕК (как у Telegram-иконки) === */
-@keyframes pulse-service-card {
+/* === АНИМАЦИЯ ПУЛЬСАЦИИ === */
+@keyframes pulse-card {
     0%, 100% {
         transform: scale(1);
         box-shadow: 0 8px 20px rgba(0,0,0,0.12);
     }
     50% {
         transform: scale(1.02);
-        box-shadow: 0 14px 35px rgba(122, 95, 79, 0.25);
+        box-shadow: 0 14px 35px rgba(122, 95, 79, 0.28);
     }
 }
 
+/* === КАРТОЧКА УСЛУГИ === */
 .service-card {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 16px;
     padding: 30px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.12);
     backdrop-filter: blur(4px);
-    transition: transform 0.3s, box-shadow 0.3s;
     border: 1px solid rgba(212, 200, 192, 0.3);
     
-    /* === ПУЛЬСАЦИЯ — РАБОТАЕТ НА iOS === */
-    animation: pulse-service-card 2.5s ease-in-out infinite;
-    will-change: transform, box-shadow; /* Оптимизация для iOS */
+    /* Анимация */
+    animation: pulse-card 2.5s ease-in-out infinite;
+    will-change: transform, box-shadow;
+    
+    /* Внутренняя структура */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-/* При наведении — останавливаем пульсацию и поднимаем карточку */
+/* При наведении */
 .service-card:hover {
     animation-play-state: paused;
-    transform: translateY(-5px) scale(1.02);
+    transform: translateY(-5px);
     box-shadow: 0 12px 30px rgba(0,0,0,0.18);
 }
 
+/* === ЗАГОЛОВОК УСЛУГИ === */
+.service-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4a3a32;
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+}
+
+/* === ЦЕНА === */
+.service-card .price {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #7a5f4f;
+    margin: 0 0 16px 0;
+    display: block;
+    line-height: 1.4;
+}
+
+
+/* === ОПИСАНИЕ УСЛУГИ === */
+.service-card p:not(.price) {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555555;
+    margin: 0;
+    font-weight: 400;
+}
 
 /* ========================================
    9. МОДАЛЬНОЕ ОКНО (Modal, Scrollbar, Close)
@@ -636,14 +636,79 @@ img {
     font-weight: 700;
     margin-bottom: 20px;
 }
-
+/* === КОНТЕЙНЕР ОПИСАНИЯ В МОДАЛЬНОМ ОКНЕ === */
 .modal-description {
     color: #6b5b52;
     line-height: 1.7;
     font-size: 1.05rem;
-    margin-bottom: 24px;
+    /* ✅ Убрали лишние отступы */
+    padding: 0;
+    margin: 15px 0 25px;
+    text-align: left;
 }
 
+/* === ВВОДНЫЙ АБЗАЦ (modal-intro) === */
+.modal-description .modal-intro {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 20px;
+    /* ✅ Убрали отступ слева */
+    padding-left: 0;
+}
+
+/* === СПИСОК ПРЕИМУЩЕСТВ (modal-features) === */
+.modal-description .modal-features {
+    list-style: none;
+    /* ✅ Убрали отступ у списка */
+    padding: 0;
+    margin: 0;
+}
+
+/* === ПУНКТЫ СПИСКА === */
+.modal-description .modal-features li {
+    position: relative;
+    /* ✅ Отступ только для галочки, текст выровнен */
+    padding-left: 24px;
+    margin-bottom: 14px;
+    line-height: 1.5;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* === ГАЛОЧКА ПЕРЕД ПУНКТОМ === */
+.modal-description .modal-features li::before {
+    content: "✓";
+    position: absolute;
+    /* ✅ Галочка вынесена в отрицательную зону, чтобы текст начинался ровно */
+    left: 0;
+    top: 0;
+    color: #7a5f4f;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* === ЖИРНЫЙ ТЕКСТ (до двоеточия) === */
+.modal-description .modal-features li strong {
+    color: #4a3a32;
+    font-weight: 600;
+}
+
+/* === УНИФИКАЦИЯ ОТСТУПОВ КОНТЕНТА === */
+/* Чтобы заголовок, цена и текст начинались от одной линии */
+.modal-info h3,
+.modal-price,
+.modal-description {
+    padding-left: 0;
+    margin-left: 0;
+}
+
+/* Опционально: если нужно сместить ВСЁ содержимое правее от краев окна */
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px 30px 40px;
+    gap: 30px;
+}
 .modal-btn {
     display: inline-block;
     background: #7a5f4f;
