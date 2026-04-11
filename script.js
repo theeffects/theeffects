@@ -237,71 +237,125 @@ if (contactForm) {
   }
   
 // === Модальное окно услуг ===
-const serviceCards = document.querySelectorAll('.service-card');
-const serviceModal = document.getElementById('service-modal');
-const modalOverlay = document.querySelector('.modal-overlay');
-const modalClose = document.querySelector('.modal-close');
-const modalImg = document.getElementById('modal-img');
-const modalTitle = document.getElementById('modal-title');
-const modalPrice = document.getElementById('modal-price');
-const modalDesc = document.getElementById('modal-desc');
+    const serviceCards = document.querySelectorAll('.service-card');
+    const serviceModal = document.getElementById('service-modal');
+    const modalOverlay = document.querySelector('.modal-overlay');
+    const modalCloseBtn = document.querySelector('.modal-close');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalPrice = document.getElementById('modal-price');
+    const modalDesc = document.getElementById('modal-desc');
 
-// Данные для каждой услуги
-const serviceData = {
-  smoke: {
-    title: 'Дымовые машины',
-    price: 'от 5 000 ₽',
-    image: 'images/smoke-machine.jpg',
-    description: 'Профессиональные дымовые установки для создания атмосферного эффекта на сцене и открытых площадках. Используем оборудование от ведущих производителей (Look Solutions, MDG, Antari). Возможна синхронизация с музыкой и светом. Безопасные жидкости на водной основе, не оставляют запаха и следов. Идеально для свадеб, корпоративов, концертов и театральных постановок.'
-  },
-  light: {
-    title: 'Световые эффекты',
-    price: 'от 8 000 ₽',
-    image: 'images/light-effects.jpg',
-    description: 'Комплексное световое оформление мероприятий: LED-панели, лазерные проекторы, стробоскопы, вращающиеся головы, пар-свет. Создаём динамические световые шоу с синхронизацией под музыку. Полное техническое сопровождение: монтаж, настройка, работа оператора. Подходит для клубов, фестивалей, презентаций и шоу-программ.'
-  },
-  fireworks: {
-    title: 'Холодный фейерверк',
-    price: 'от 12 000 ₽',
-    image: 'images/cold-fireworks.jpg',
-    description: 'Безопасный пиротехнический эффект для закрытия мероприятия. Холодные фонтаны работают при температуре 40-60°C, не выделяют дыма и искр. Различная высота фонтанов (от 1 до 5 метров). Возможна установка по периметру сцены, вдоль дорожек или в виде фигуры. Дистанционное управление, полная безопасность для гостей.'
-  }
-};
+    // Данные для каждой услуги (ключи должны совпадать с data-service в HTML)
+    const serviceData = {
+        smoke: {
+            title: "Тяжелый дым",
+            price: "от 5 000 ₽",
+            image: "images/smoke.jpg",
+            description: `
+                <p class="modal-intro">Эффект «танца на облаках» для вашего события. Дым стелется по полу, не поднимаясь вверх.</p>
+                <ul class="modal-features">
+                    <li><strong>Безопасно:</strong> без запаха, не оставляет следов на одежде и полу.</li>
+                    <li><strong>Эффектно:</strong> скрывает несовершенства пола, идеален для фото/видео.</li>
+                    <li><strong>Длительность:</strong> плотный слой держится 3–5 минут.</li>
+                    <li><strong>Подходит для:</strong> первого танца, выхода молодоженов, фотосессий.</li>
+                </ul>`
+        },
+        photobooth: {
+            title: "Фотобудка (Photobooth) с брендированием",
+            price: "от 10 000 ₽",
+            image: "images/photobooth.jpg",
+            description: `
+                <p class="modal-intro">Развлечение для гостей + памятные фото. Печать на месте (полоски или 10x15) и отправка всех снимков на email.</p>
+                <ul class="modal-features">
+                    <li><strong>Персонализация:</strong> дизайн фоторамки с вашими именами/логотипом.</li>
+                    <li><strong>Двойная память:</strong> гости забирают фото сразу, вы получаете полную галерею.</li>
+                    <li><strong>Для всех:</strong> вместительный обзор 1-15 чел., профессиональный свет, реквизит в комплекте.</li>
+                    <li><strong>Форматы печати:</strong> на выбор — классические 10x15 или стильные узкие полоски.</li>
+                    <li><strong>Идеально для:</strong> свадеб, корпоративов, дней рождения.</li>
+                </ul>`
+        },
+        fireworks: {
+            title: "Пиротехническое шоу любого масштаба",
+            price: "от 12 000 ₽",
+            image: "images/fireworks.jpg",
+            description: `
+                <p class="modal-intro">От искр у ног до салюта в небе.</p>
+                <ul class="modal-features">
+                    <li>Безопасные холодные фонтаны для помещений (1–4 м).</li>
+                    <li>Зрелищные фейерверки для открытых площадок (до 30 м).</li>
+                    <li>Полное юридическое сопровождение.</li>
+                    <li>Сертифицированное оборудование.</li>
+                    <li>Гарантия вау-эффекта без дыма и запаха.</li>
+                </ul>`
+        },
+        champagne: {
+            title: "Шоу-подача шампанского",
+            price: "по запросу",
+            image: "images/champagne.jpg",
+            description: `
+                <p class="modal-intro">Эстетика праздника в каждой детали. Превратите традиционный ритуал в главное фото события.</p>
+                <ul class="modal-features">
+                    <li><strong>Безупречный сервис:</strong> Профессиональные сомелье и ассистенты. Никаких пролитых бокалов и очередей.</li>
+                    <li><strong>Премиальное наполнение:</strong> Работаем с вашим алкоголем или подбираем идеальные пары.</li>
+                    <li><strong>Визуальный акцент:</strong> Подсветка, сухой лед, живые цветы или фруктовые декорации.</li>
+                    <li><strong>Чистота и порядок:</strong> Демонтаж и уборка после завершения шоу входят в стоимость.</li>
+                </ul>`
+        }
+    };
 
-// Открытие модального окна
-serviceCards.forEach(card => {
-  card.addEventListener('click', () => {
-    const serviceType = card.getAttribute('data-service');
-    const data = serviceData[serviceType];
-    
-    if (data && serviceModal) {
-      modalImg.src = data.image;
-      modalImg.alt = data.title;
-      modalTitle.textContent = data.title;
-      modalPrice.textContent = data.price;
-      modalDesc.textContent = data.description;
-      
-      serviceModal.classList.add('active');
-      document.body.classList.add('modal-open');
-    }
-  });
-});
+    // Открытие модального окна
+    serviceCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const serviceType = card.getAttribute('data-service');
+            const data = serviceData[serviceType];
+            
+            // Проверка: существует ли услуга в базе
+            if (data && serviceModal) {
+                // ✅ ИСПРАВЛЕНО: innerHTML вместо textContent для поддержки HTML-тегов
+                modalDesc.innerHTML = data.description; 
+                modalTitle.textContent = data.title;
+                modalPrice.textContent = data.price;
+                
+                // ✅ ИСПРАВЛЕНО: проверка на существование изображения
+                if (modalImg && data.image) {
+                    modalImg.src = data.image;
+                    modalImg.alt = data.title;
+                }
+                
+                serviceModal.classList.add('active');
+                document.body.classList.add('modal-open');
+            } else {
+                console.warn('Услуга не найдена:', serviceType);
+            }
+        });
+    });
 
-// Закрытие модального окна
+// === Закрытие модального окна ===
 const closeModal = () => {
-  if (serviceModal) {
-    serviceModal.classList.remove('active');
-    document.body.classList.remove('modal-open');
-  }
+    if (serviceModal) {
+        serviceModal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+    }
 };
 
-if (modalClose) modalClose.addEventListener('click', closeModal);
+// ✅ ИСПРАВЛЕНО: modalCloseBtn вместо modalClose
+if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
 if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
 
 // Закрытие по ESC
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && serviceModal?.classList.contains('active')) {
-    closeModal();
-  }
+    if (e.key === 'Escape' && serviceModal?.classList.contains('active')) {
+        closeModal();
+    }
 });
+
+// Закрытие при клике вне контента модального окна
+if (serviceModal) {
+    serviceModal.addEventListener('click', (e) => {
+        if (e.target === serviceModal || e.target.classList.contains('modal-overlay')) {
+            closeModal();
+        }
+    });
+}
 });
