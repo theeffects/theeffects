@@ -11,6 +11,8 @@
    8. Услуги (Services Grid, Cards)
    9. Модальное окно (Modal, Scrollbar, Close)
    10. Размытие фона (Modal Open States)
+   8.5 О компании
+   8.6 КАК МЫ РАБОТАЕМ
    11. Кнопка CTA (Call To Action)
    12. Кейсы (Portfolio, Slider, Dots, Buttons)
    13. Описание кейса (Case Description)
@@ -908,6 +910,119 @@ body.modal-open {
   margin: 0;
 }
 /* ========================================
+8.6 КАК МЫ РАБОТАЕМ (Process Section)
+======================================== */
+.process-section {
+  padding: 70px 0;
+  background-color: var(--bg-light); /* Светлый фон как везде */
+  position: relative;
+}
+
+.process-section h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: var(--text-main);
+}
+
+.process-subtitle {
+  text-align: center;
+  color: #6b5b52;
+  margin-bottom: 50px;
+  font-size: 1.1rem;
+}
+
+/* Обертка для шагов */
+.process-steps-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  position: relative;
+}
+
+/* Карточка шага */
+.process-card {
+  flex: 1;
+  text-align: center;
+  background: #fff;
+  padding: 30px 15px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border: 1px solid rgba(212, 200, 192, 0.3);
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 2; /* Чтобы быть выше линии */
+}
+
+.process-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(122, 95, 79, 0.15);
+}
+
+/* Кружок с цифрой */
+.process-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(122, 95, 79, 0.1);
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--accent);
+  border: 2px solid rgba(122, 95, 79, 0.2);
+  transition: all 0.3s ease;
+}
+
+.process-card:hover .process-icon {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.process-card h4 {
+  font-size: 1.15rem;
+  color: #4a3a32;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.process-card p {
+  font-size: 0.9rem;
+  color: #6b5b52;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Стрелочки между шагами */
+.process-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #d4c8c0;
+  flex-shrink: 0;
+  width: 30px;
+  margin-top: 15px; /* Выравнивание по вертикали относительно контента */
+}
+
+/* Соединительная линия (декор) */
+.process-steps-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 45px; /* По центру кружков */
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: #e6ded8;
+  z-index: 1; /* Под карточками */
+  border-bottom: 2px dashed #d4c8c0;
+}
+
+/* ========================================
    11. КНОПКА CTA (Call To Action)
    ======================================== */
 .call-to-action {
@@ -1425,6 +1540,40 @@ body.menu-open .telegram-float {
 
 /* --- 900px (Tablet) --- */
 @media (max-width: 900px) {
+   /* Скрываем стрелочки и линию на планшетах и телефонах */
+  .process-arrow { display: none; }
+  .process-steps-wrapper::before { display: none; }
+
+  .process-steps-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .process-card {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .process-icon {
+    margin: 0;
+    flex-shrink: 0; /* Чтобы круг не сжимался */
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  .process-card h4 {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+  }
+  
+  .process-card p {
+    font-size: 0.9rem;
+  }
     .hero-inner {
         flex-direction: column;
         text-align: center;
@@ -1849,6 +1998,9 @@ body.menu-open .telegram-float {
 
 /* --- 413px (Medium Phones) --- */
 @media (max-width: 413px) {
+  .process-section { padding: 50px 0; }
+  .process-card { flex-direction: column; text-align: center; gap: 15px; }
+  .process-icon { margin: 0 auto 10px; }
   .about {
     padding: 50px 0;
   }
