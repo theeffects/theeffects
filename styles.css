@@ -748,6 +748,140 @@ body.modal-open {
     overflow: hidden;
 }
 
+/* ========================================
+8.5 О КОМПАНИИ (About Section)
+======================================== */
+.about {
+  padding: 70px 0;
+  background: rgba(255, 251, 249, 0.7);
+}
+
+.about h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 50px;
+  color: #4a3a32;
+  font-weight: 700;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 60px;
+  align-items: center;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-intro {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #4a3a32;
+  font-weight: 500;
+}
+
+.about-text p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #6b5b52;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(212, 200, 192, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(122, 95, 79, 0.2);
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #7a5f4f;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  color: #6b5b52;
+  line-height: 1.4;
+  display: block;
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.feature {
+  text-align: center;
+  padding: 25px 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(212, 200, 192, 0.3);
+}
+
+.feature:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  background: rgba(122, 95, 79, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7a5f4f;
+  transition: all 0.3s ease;
+}
+
+.feature:hover .feature-icon {
+  background: #7a5f4f;
+  color: white;
+  transform: scale(1.1);
+}
+
+.feature h4 {
+  font-size: 1.15rem;
+  color: #4a3a32;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.feature p {
+  font-size: 0.95rem;
+  color: #6b5b52;
+  line-height: 1.5;
+  margin: 0;
+}
 
 /* ========================================
    11. КНОПКА CTA (Call To Action)
@@ -1289,10 +1423,80 @@ body.menu-open .telegram-float {
     .portfolio {
         min-height: 850px;
     }
+    .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .about-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .about-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* --- 768px (Mobile Standard) --- */
 @media (max-width: 768px) {
+   .about {
+    padding: 60px 0;
+  }
+  
+  .about h2 {
+    font-size: 1.9rem;
+    margin-bottom: 40px;
+  }
+  
+  .about-intro {
+    font-size: 1.05rem;
+  }
+  
+  .about-text p {
+    font-size: 1rem;
+  }
+  
+  .about-stats {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .stat-card {
+    padding: 25px 20px;
+  }
+  
+  .stat-number {
+    font-size: 2.2rem;
+  }
+  
+  .about-features {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    text-align: left;
+    padding: 20px;
+  }
+  
+  .feature-icon {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    margin: 0;
+  }
+  
+  .feature h4 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+  }
+  
+  .feature p {
+    font-size: 0.9rem;
+  }
     .header-placeholder {
         height: 0;
     }
@@ -1490,6 +1694,22 @@ body.menu-open .telegram-float {
 
 /* --- 599px (Large Phones) --- */
 @media (max-width: 599px) {
+   .about {
+    padding: 50px 0;
+  }
+  
+  .about h2 {
+    font-size: 1.7rem;
+    margin-bottom: 35px;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .stat-label {
+    font-size: 0.9rem;
+  }
     .container {
         padding: 0 15px;
     }
@@ -1591,6 +1811,34 @@ body.menu-open .telegram-float {
 
 /* --- 413px (Medium Phones) --- */
 @media (max-width: 413px) {
+   .about {
+    padding: 45px 0;
+  }
+  
+  .about h2 {
+    font-size: 1.6rem;
+  }
+  
+  .about-intro {
+    font-size: 1rem;
+  }
+  
+  .stat-number {
+    font-size: 1.8rem;
+  }
+  
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .feature h4 {
+    font-size: 1.05rem;
+  }
+  
+  .feature p {
+    font-size: 0.85rem;
+  }
     .container {
         padding: 0 12px;
     }
@@ -1696,6 +1944,44 @@ body.menu-open .telegram-float {
 
 /* --- 374px (Small Phones) --- */
 @media (max-width: 374px) {
+   .about {
+    padding: 40px 0;
+  }
+  
+  .about h2 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .stat-card {
+    padding: 20px 15px;
+  }
+  
+  .stat-number {
+    font-size: 1.6rem;
+  }
+  
+  .stat-label {
+    font-size: 0.85rem;
+  }
+  
+  .feature {
+    padding: 18px 15px;
+    gap: 12px;
+  }
+  
+  .feature-icon {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .feature h4 {
+    font-size: 1rem;
+  }
+  
+  .feature p {
+    font-size: 0.8rem;
+  }
     .container {
         padding: 0 10px;
     }
@@ -1835,6 +2121,53 @@ body.menu-open .telegram-float {
 
 /* --- 319px (Very Small Phones) --- */
 @media (max-width: 319px) {
+   .about {
+    padding: 35px 0;
+  }
+  
+  .about h2 {
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+  }
+  
+  .about-intro {
+    font-size: 0.95rem;
+  }
+  
+  .about-text p {
+    font-size: 0.9rem;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
+  }
+  
+  .feature {
+    padding: 15px 12px;
+    gap: 10px;
+  }
+  
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .feature-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .feature h4 {
+    font-size: 0.95rem;
+  }
+  
+  .feature p {
+    font-size: 0.75rem;
+  }
     .container {
         padding: 0 8px;
     }
