@@ -752,141 +752,158 @@ body.modal-open {
 8.5 О КОМПАНИИ (About Section)
 ======================================== */
 .about {
-  padding: 70px 0;
-  background: rgba(255, 251, 249, 0.7);
+  position: relative;
+  padding: 90px 0;
+  color: white;
+  overflow: hidden;
+}
+
+.about-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.about-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(60, 40, 20, 0.75);
+  z-index: 1;
+}
+
+.about .container {
+  position: relative;
+  z-index: 2;
 }
 
 .about h2 {
   text-align: center;
   font-size: 2.2rem;
   margin-bottom: 40px;
-  color: #4a3a32;
+  color: white;
   font-weight: 700;
 }
 
-/* === ЦЕНТРИРОВАННЫЙ ТЕКСТ === */
-.about-text-center {
+/* === ТЕКСТОВЫЙ БЛОК === */
+.about-content {
   text-align: center;
   max-width: 800px;
   margin: 0 auto 50px;
 }
 
 .about-intro {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   line-height: 1.7;
-  color: #4a3a32;
+  color: rgba(255, 255, 255, 0.95);
   font-weight: 500;
   margin-bottom: 20px;
 }
 
-.about-text-center p {
+.about-content p {
   font-size: 1.05rem;
   line-height: 1.7;
-  color: #6b5b52;
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: 15px;
 }
 
-.about-text-center p:last-child {
+.about-content p:last-child {
   margin-bottom: 0;
 }
 
-/* === СТАТИСТИКА (центрирована) === */
-.about-stats-centered {
+/* === СТАТИСТИКА В ОДНУ ЛИНИЮ === */
+.about-stats-inline {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  align-items: center;
+  gap: 40px;
   margin-bottom: 60px;
   flex-wrap: wrap;
 }
 
-.stat-card {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 16px;
-  padding: 30px 40px;
+.stat-item {
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(212, 200, 192, 0.3);
-  transition: all 0.3s ease;
-  min-width: 200px;
 }
 
-.stat-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 15px 40px rgba(122, 95, 79, 0.25);
-  border-color: rgba(122, 95, 79, 0.4);
-}
-
-.stat-number {
+.stat-value {
   display: block;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: 700;
-  color: #7a5f4f;
+  color: white;
   margin-bottom: 8px;
   line-height: 1;
 }
 
-.stat-label {
+.stat-text {
   font-size: 0.95rem;
-  color: #6b5b52;
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1.4;
-  display: block;
 }
 
-/* === ПРЕИМУЩЕСТВА (центрированы) === */
-.about-features-centered {
+.stat-divider {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1;
+}
+
+/* === ПРЕИМУЩЕСТВА БЕЗ КАТОЧЕК === */
+.about-features-simple {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.feature {
+.feature-simple {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  padding: 30px 20px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 16px;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(212, 200, 192, 0.3);
-  cursor: default;
+  gap: 15px;
 }
 
-.feature:hover {
-  background: rgba(255, 255, 255, 0.98);
-  transform: translateY(-10px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-  border-color: rgba(122, 95, 79, 0.5);
-}
-
-.feature-icon {
-  width: 70px;
-  height: 70px;
-  margin: 0 auto 20px;
-  background: linear-gradient(135deg, rgba(122, 95, 79, 0.15), rgba(122, 95, 79, 0.05));
+.feature-simple-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #7a5f4f;
-  transition: all 0.3s ease;
-}
-
-.feature:hover .feature-icon {
-  background: linear-gradient(135deg, #7a5f4f, #6a5040);
   color: white;
-  transform: scale(1.15) rotate(5deg);
-  box-shadow: 0 8px 20px rgba(122, 95, 79, 0.3);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.feature h4 {
+.feature-simple:hover .feature-simple-icon {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feature-simple-icon svg {
+  stroke: white;
+}
+
+.feature-simple h4 {
   font-size: 1.15rem;
-  color: #4a3a32;
-  margin-bottom: 12px;
+  color: white;
   font-weight: 600;
+  margin: 0;
 }
 
-.feature p {
+.feature-simple p {
   font-size: 0.95rem;
-  color: #6b5b52;
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1.5;
   margin: 0;
 }
@@ -1431,15 +1448,16 @@ body.menu-open .telegram-float {
         min-height: 850px;
     }
    
-   .about-features-centered {
+   .about-features-simple {
     grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
   }
 }
 
 /* --- 768px (Mobile Standard) --- */
 @media (max-width: 768px) {
    .about {
-    padding: 60px 0;
+    padding: 70px 0;
   }
   
   .about h2 {
@@ -1448,54 +1466,49 @@ body.menu-open .telegram-float {
   }
   
   .about-intro {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
   }
   
-  .about-text-center p {
+  .about-content p {
     font-size: 1rem;
   }
   
-  .about-stats-centered {
+  .about-stats-inline {
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    gap: 25px;
     margin-bottom: 50px;
   }
   
-  .stat-card {
-    width: 100%;
-    max-width: 300px;
-    padding: 25px 30px;
+  .stat-divider {
+    display: none;
   }
   
-  .stat-number {
-    font-size: 2.2rem;
+  .stat-value {
+    font-size: 2.5rem;
   }
   
-  .about-features-centered {
+  .about-features-simple {
     grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .feature-simple {
+    flex-direction: row;
+    text-align: left;
     gap: 20px;
   }
   
-  .feature {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 25px 20px;
+  .feature-simple-icon {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
   }
   
-  .feature-icon {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 15px;
-  }
-  
-  .feature h4 {
+  .feature-simple h4 {
     font-size: 1.1rem;
-    margin-bottom: 8px;
   }
   
-  .feature p {
+  .feature-simple p {
     font-size: 0.9rem;
   }
     .header-placeholder {
@@ -1695,16 +1708,46 @@ body.menu-open .telegram-float {
 
 /* --- 599px (Large Phones) --- */
 @media (max-width: 599px) {
-   .about {
-    padding: 50px 0;
+  .about {
+    padding: 60px 0;
   }
   
   .about h2 {
     font-size: 1.7rem;
   }
   
-  .stat-number {
-    font-size: 2rem;
+  .about-intro {
+    font-size: 1.05rem;
+  }
+  
+  .stat-value {
+    font-size: 2.2rem;
+  }
+  
+  .stat-text {
+    font-size: 0.9rem;
+  }
+  
+  .feature-simple {
+    gap: 15px;
+  }
+  
+  .feature-simple-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .feature-simple-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .feature-simple h4 {
+    font-size: 1.05rem;
+  }
+  
+  .feature-simple p {
+    font-size: 0.85rem;
   }
     .container {
         padding: 0 15px;
@@ -1808,24 +1851,32 @@ body.menu-open .telegram-float {
 /* --- 413px (Medium Phones) --- */
 @media (max-width: 413px) {
   .about {
-    padding: 45px 0;
+    padding: 50px 0;
   }
   
   .about h2 {
     font-size: 1.6rem;
+    margin-bottom: 25px;
   }
   
   .about-intro {
     font-size: 1rem;
   }
   
-  .stat-number {
-    font-size: 1.8rem;
+  .about-content p {
+    font-size: 0.95rem;
   }
   
-  .feature-icon {
-    width: 56px;
-    height: 56px;
+  .stat-value {
+    font-size: 2rem;
+  }
+  
+  .feature-simple h4 {
+    font-size: 1rem;
+  }
+  
+  .feature-simple p {
+    font-size: 0.85rem;
   }
     .container {
         padding: 0 12px;
@@ -1933,41 +1984,49 @@ body.menu-open .telegram-float {
 /* --- 374px (Small Phones) --- */
 @media (max-width: 374px) {
    .about {
-    padding: 40px 0;
+    padding: 45px 0;
   }
   
   .about h2 {
     font-size: 1.5rem;
-    margin-bottom: 25px;
   }
   
-  .stat-card {
-    padding: 20px 25px;
+  .about-intro {
+    font-size: 0.95rem;
   }
   
-  .stat-number {
-    font-size: 1.6rem;
+  .about-content p {
+    font-size: 0.9rem;
   }
   
-  .stat-label {
+  .stat-value {
+    font-size: 1.8rem;
+  }
+  
+  .stat-text {
     font-size: 0.85rem;
   }
   
-  .feature {
-    padding: 20px 15px;
+  .feature-simple {
+    gap: 12px;
   }
   
-  .feature-icon {
-    width: 50px;
-    height: 50px;
+  .feature-simple-icon {
+    width: 46px;
+    height: 46px;
   }
   
-  .feature h4 {
-    font-size: 1.05rem;
+  .feature-simple-icon svg {
+    width: 22px;
+    height: 22px;
   }
   
-  .feature p {
-    font-size: 0.85rem;
+  .feature-simple h4 {
+    font-size: 0.95rem;
+  }
+  
+  .feature-simple p {
+    font-size: 0.8rem;
   }
     .container {
         padding: 0 10px;
@@ -2109,45 +2168,46 @@ body.menu-open .telegram-float {
 /* --- 319px (Very Small Phones) --- */
 @media (max-width: 319px) {
    .about {
-    padding: 35px 0;
+    padding: 40px 0;
   }
   
   .about h2 {
     font-size: 1.4rem;
+    margin-bottom: 20px;
   }
   
   .about-intro {
-    font-size: 0.95rem;
-  }
-  
-  .about-text-center p {
     font-size: 0.9rem;
   }
   
-  .stat-number {
-    font-size: 1.5rem;
+  .about-content p {
+    font-size: 0.85rem;
   }
   
-  .stat-label {
+  .stat-value {
+    font-size: 1.6rem;
+  }
+  
+  .stat-text {
     font-size: 0.8rem;
   }
   
-  .feature-icon {
-    width: 44px;
-    height: 44px;
+  .feature-simple-icon {
+    width: 42px;
+    height: 42px;
   }
   
-  .feature-icon svg {
-    width: 24px;
-    height: 24px;
+  .feature-simple-icon svg {
+    width: 20px;
+    height: 20px;
   }
   
-  .feature h4 {
-    font-size: 1rem;
+  .feature-simple h4 {
+    font-size: 0.9rem;
   }
   
-  .feature p {
-    font-size: 0.8rem;
+  .feature-simple p {
+    font-size: 0.75rem;
   }
     .container {
         padding: 0 8px;
