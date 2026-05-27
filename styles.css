@@ -826,7 +826,8 @@ body.modal-open {
   justify-content: center;
   align-items: center;
   gap: 40px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
+  margin-top: 30px;
   flex-wrap: wrap;
 }
 
@@ -1200,6 +1201,7 @@ body.modal-open {
    ======================================== */
 .case-description {
     margin-top: 30px;
+    margin-bottom: 30px;
     text-align: center;
     max-width: 800px;
     margin-left: auto;
