@@ -27,13 +27,14 @@ if (contactForm) {
     if (!phone) { alert('Пожалуйста, введите ваш номер телефона.'); return; }
     
     // === Проверка телефона ===
-    const phoneDigits = phone.replace(/\D/g, ''); // Оставляем только цифры
-    if (phoneDigits.length < 10) {
-      alert('Пожалуйста, введите корректный номер: +7 (___) ___-__-__');
+    const phoneDigits = phone.replace(/\D/g, ''); // Только цифры
+    if (phoneDigits.length !== 11) {
+      alert('Пожалуйста, введите полный номер: +7 (___) ___-__-__');
       phoneInput.focus();
       return;
     }
-    
+    const phoneForSend = phoneDigits;
+
     // === Блокируем кнопку ===
     submitBtn.disabled = true;
     submitBtn.textContent = 'Отправка...';
