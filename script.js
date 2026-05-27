@@ -70,48 +70,65 @@ if (contactForm) {
     }
   });
 }
- /* ========================================
-МАСКА ТЕЛЕФОНА +7 (___) ___-__-__
+/* ========================================
+МАСКА ТЕЛЕФОНА +7 (___) ___-__-__ (ИСПРАВЛЕННАЯ)
 ======================================== */
 const phoneInput = document.getElementById('phone');
 
 if (phoneInput) {
-  // Форматируем номер при вводе
-  phoneInput.addEventListener('input', function(e) {
-    let value = e.target.value.replace(/\D/g, ''); // Удаляем всё кроме цифр
+  // Функция форматирования
+  function formatPhone(value) {
+    // Удаляем всё кроме цифр
+    let digits = value.replace(/\D/g, '');
     
-    // Если начали вводить с 8 или 7 — нормализуем
-    if (value.startsWith('8')) value = value.slice(1);
-    if (value.startsWith('7')) value = value.slice(1);
+    // Если начали с 8 — заменяем на 7
+    if (digits.startsWith('8')) digits = '7' + digits.slice(1);
+    // Если не начинается с 7 — добавляем
+    if (!digits.startsWith('7')) digits = '7' + digits;
     
-    // Ограничиваем до 10 цифр (после +7)
-    value = value.slice(0, 10);
+    // Ограничиваем до 11 цифр (7 + 10)
+    digits = digits.slice(0, 11);
     
     // Форматируем: +7 (XXX) XXX-XX-XX
     let formatted = '+7';
-    if (value.length > 0) formatted += ' (' + value.slice(0, 3);
-    if (value.length >= 3) formatted += ') ' + value.slice(3, 6);
-    if (value.length >= 6) formatted += '-' + value.slice(6, 8);
-    if (value.length >= 8) formatted += '-' + value.slice(8, 10);
+    if (digits.length > 1) formatted += ' (' + digits.slice(1, 4);
+    if (digits.length > 4) formatted += ') ' + digits.slice(4, 7);
+    if (digits.length > 7) formatted += '-' + digits.slice(7, 9);
+    if (digits.length > 9) formatted += '-' + digits.slice(9, 11);
     
+    return formatted;
+  }
+  
+  // При вводе
+  phoneInput.addEventListener('input', function(e) {
+    const formatted = formatPhone(e.target.value);
     e.target.value = formatted;
   });
-
-  // При фокусе — если поле пустое, показываем начало маски
+  
+  // При вставке
+  phoneInput.addEventListener('paste', function(e) {
+    e.preventDefault();
+    const paste = (e.clipboardData || window.clipboardData).getData('text');
+    const formatted = formatPhone(paste);
+    e.target.value = formatted;
+    e.target.dispatchEvent(new Event('input'));
+  });
+  
+  // При фокусе — если пустое, показываем +7
   phoneInput.addEventListener('focus', function(e) {
     if (!e.target.value || e.target.value === '+7') {
       e.target.value = '+7 (';
     }
   });
-
-  // При потере фокуса — очищаем, если номер неполный
+  
+  // При потере фокуса — проверяем корректность
   phoneInput.addEventListener('blur', function(e) {
-    let value = e.target.value.replace(/\D/g, '');
-    if (value.length < 10) {
-      e.target.value = ''; 
+    const digits = e.target.value.replace(/\D/g, '');
+    if (digits.length < 11) {
+      e.target.value = ''; // Очищаем если неполный
     }
   });
-} 
+}
   // === Слайдер ===
   const slides = document.querySelectorAll('.slide');
   const caseTitle = document.getElementById('case-title');
