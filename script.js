@@ -26,9 +26,11 @@ if (contactForm) {
     if (!name) { alert('Пожалуйста, введите ваше имя.'); return; }
     if (!phone) { alert('Пожалуйста, введите ваш номер телефона.'); return; }
     
-    const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
-    if (!phoneRegex.test(phone.replace(/\s/g, ''))) {
-      alert('Пожалуйста, введите корректный номер телефона (например: +79516696369).');
+    // === Проверка телефона ===
+    const phoneDigits = phone.replace(/\D/g, ''); // Оставляем только цифры
+    if (phoneDigits.length < 10) {
+      alert('Пожалуйста, введите корректный номер: +7 (___) ___-__-__');
+      phoneInput.focus();
       return;
     }
     
@@ -44,7 +46,7 @@ if (contactForm) {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify({ name, phone })
+       body: JSON.stringify({ name, phone: phoneForSend })
       });
       
       if (response.ok) {
@@ -68,7 +70,48 @@ if (contactForm) {
     }
   });
 }
-  
+ /* ========================================
+МАСКА ТЕЛЕФОНА +7 (___) ___-__-__
+======================================== */
+const phoneInput = document.getElementById('phone');
+
+if (phoneInput) {
+  // Форматируем номер при вводе
+  phoneInput.addEventListener('input', function(e) {
+    let value = e.target.value.replace(/\D/g, ''); // Удаляем всё кроме цифр
+    
+    // Если начали вводить с 8 или 7 — нормализуем
+    if (value.startsWith('8')) value = value.slice(1);
+    if (value.startsWith('7')) value = value.slice(1);
+    
+    // Ограничиваем до 10 цифр (после +7)
+    value = value.slice(0, 10);
+    
+    // Форматируем: +7 (XXX) XXX-XX-XX
+    let formatted = '+7';
+    if (value.length > 0) formatted += ' (' + value.slice(0, 3);
+    if (value.length >= 3) formatted += ') ' + value.slice(3, 6);
+    if (value.length >= 6) formatted += '-' + value.slice(6, 8);
+    if (value.length >= 8) formatted += '-' + value.slice(8, 10);
+    
+    e.target.value = formatted;
+  });
+
+  // При фокусе — если поле пустое, показываем начало маски
+  phoneInput.addEventListener('focus', function(e) {
+    if (!e.target.value || e.target.value === '+7') {
+      e.target.value = '+7 (';
+    }
+  });
+
+  // При потере фокуса — очищаем, если номер неполный
+  phoneInput.addEventListener('blur', function(e) {
+    let value = e.target.value.replace(/\D/g, '');
+    if (value.length < 10) {
+      e.target.value = ''; 
+    }
+  });
+} 
   // === Слайдер ===
   const slides = document.querySelectorAll('.slide');
   const caseTitle = document.getElementById('case-title');
