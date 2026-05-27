@@ -1805,7 +1805,7 @@ body.menu-open .telegram-float {
     }
 
     .portfolio {
-        min-height: auto;
+        min-height: 620px;
         padding-bottom: 30px;
     }
 
