@@ -1476,7 +1476,8 @@ body.menu-open .telegram-float {
   .about-stats-inline {
     flex-direction: column;
     gap: 25px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    margin-top: 17px;
   }
   
   .stat-divider {
