@@ -1377,10 +1377,11 @@ body.modal-open {
     display: flex !important;
     justify-content: center !important;
     gap: 32px !important;
-    margin-top: auto !important;
+    margin-top: 40px !important;  /* ✅ Было auto, теперь фиксированный отступ сверху */
+    margin-bottom: 50px !important;  /* ✅ Добавили отступ снизу для iPhone */
     width: 100% !important;
     padding: 20px 0 !important;
-    border-top: none !important;
+    border-top: 1px solid rgba(122, 95, 79, 0.1) !important;  /* ✅ Добавили разделитель для красоты */
 }
 
 .mobile-footer-icons a {
