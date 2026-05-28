@@ -406,92 +406,138 @@ img {
 
 
 /* ========================================
-   8. УСЛУГИ (Services Grid, Cards)
-   ======================================== */
+8. УСЛУГИ (Services Grid, Cards)
+======================================== */
 .services {
-    padding: 70px 0 30px;
+  padding: 70px 0 30px;
 }
 
 .services h2 {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 40px;
-    color: #4a3a32;
-    font-weight: 700;
-    margin-top: 0;
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: #4a3a32;
+  font-weight: 700;
+  margin-top: 0;
 }
 
 .service-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-/* === АНИМАЦИЯ ПУЛЬСАЦИИ === */
-@keyframes pulse-card {
-    0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    }
-    50% {
-        transform: scale(1.02);
-        box-shadow: 0 14px 35px rgba(122, 95, 79, 0.28);
-    }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
 }
 
 /* === КАРТОЧКА УСЛУГИ === */
 .service-card {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 16px;
-    padding: 30px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(212, 200, 192, 0.3);
-    
-    /* Анимация */
-    animation: pulse-card 2.5s ease-in-out infinite;
-    will-change: transform, box-shadow;
-    
-    /* Внутренняя структура */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(212, 200, 192, 0.3);
+  /* Убрали пульсацию */
+  /* Внутренняя структура */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Плавный переход для hover-эффектов */
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-/* При наведении */
+/* === HOVER ЭФФЕКТ: увеличение и тень === */
 .service-card:hover {
-    animation-play-state: paused;
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(122, 95, 79, 0.2);
+  border-color: rgba(122, 95, 79, 0.4);
 }
 
 /* === ЗАГОЛОВОК УСЛУГИ === */
 .service-card h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #4a3a32;
-    margin: 0 0 12px 0;
-    line-height: 1.3;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4a3a32;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
 }
 
 /* === ЦЕНА === */
 .service-card .price {
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: #7a5f4f;
-    margin: 0 0 16px 0;
-    display: block;
-    line-height: 1.4;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #7a5f4f;
+  margin: 0 0 16px 0;
+  display: block;
+  line-height: 1.4;
 }
 
-
 /* === ОПИСАНИЕ УСЛУГИ === */
-.service-card p:not(.price) {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #555555;
-    margin: 0;
-    font-weight: 400;
+.service-card p:not(.price):not(.more-link) {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555555;
+  margin: 0 0 20px 0;
+  font-weight: 400;
+  flex-grow: 1;
+}
+
+/* === КНОПКА "ПОДРОБНЕЕ" === */
+.more-link {
+  display: inline-block;
+  margin-top: auto;
+  color: #7a5f4f;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 8px 0;
+  position: relative;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.more-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #7a5f4f;
+  transition: width 0.3s ease;
+}
+
+.service-card:hover .more-link {
+  color: #6a5040;
+  transform: translateX(5px);
+}
+
+.service-card:hover .more-link::after {
+  width: 100%;
+}
+
+/* === АДАПТИВНОСТЬ === */
+@media (max-width: 768px) {
+  .service-card {
+    padding: 25px;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px) scale(1.01);
+  }
+  
+  .more-link {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 413px) {
+  .service-card {
+    padding: 20px;
+  }
+  
+  .more-link {
+    font-size: 0.9rem;
+  }
 }
 
 /* ========================================
