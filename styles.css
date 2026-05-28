@@ -2048,6 +2048,32 @@ body.menu-open .telegram-float {
     .copyright {
         font-size: 0.8rem;
     }
+   .mobile-menu {
+     padding: 35px 15px;
+     gap: 24px;
+   }
+   
+   .mobile-menu > a {
+     font-size: 1.5rem;
+     width: 200px;
+     padding: 10px 0;
+   }
+   
+   .mobile-logo {
+     margin: 15px 0 30px;
+   }
+   
+   .mobile-logo img {
+     height: 70px;
+   }
+   
+   .menu-close {
+     top: 20px;
+     right: 20px;
+     width: 36px;
+     height: 36px;
+     font-size: 26px;
+   }
 }
 
 /* --- 413px (Medium Phones) --- */
@@ -2176,14 +2202,43 @@ body.menu-open .telegram-float {
         font-size: 0.75rem;
     }
 
-    .mobile-menu > a {
-        font-size: 1.4rem;
-        width: 190px;
-    }
-
-    .mobile-logo img {
-        height: 70px;
-    }
+    .mobile-menu {
+     padding: 30px 12px;
+     gap: 20px;
+   }
+   
+   .mobile-menu > a {
+     font-size: 1.4rem;
+     width: 180px;
+     padding: 8px 0;
+   }
+   
+   .mobile-logo {
+     margin: 10px 0 25px;
+   }
+   
+   .mobile-logo img {
+     height: 65px;
+   }
+   
+   .menu-close {
+     top: 18px;
+     right: 18px;
+     width: 34px;
+     height: 34px;
+     font-size: 24px;
+   }
+   
+   .mobile-footer-icons {
+     gap: 28px !important;
+     margin-bottom: 30px !important;
+   }
+   
+   .mobile-footer-icons img,
+   .mobile-footer-icons svg {
+     width: 30px !important;
+     height: 30px !important;
+   }
 }
 
 /* --- 374px (Small Phones) --- */
@@ -2351,23 +2406,43 @@ body.menu-open .telegram-float {
     }
 
     .mobile-menu {
-        padding: 30px 12px;
-    }
-
-    .mobile-menu > a {
-        font-size: 1.3rem;
-        width: 180px;
-    }
-
-    .mobile-logo img {
-        height: 65px;
-    }
-
-    .menu-close {
-        font-size: 26px;
-        width: 38px;
-        height: 38px;
-    }
+     padding: 25px 10px;
+     gap: 18px;
+   }
+   
+   .mobile-menu > a {
+     font-size: 1.3rem;
+     width: 170px;
+     padding: 8px 0;
+   }
+   
+   .mobile-logo {
+     margin: 10px 0 20px;
+   }
+   
+   .mobile-logo img {
+     height: 60px;
+   }
+   
+   .menu-close {
+     top: 15px;
+     right: 15px;
+     width: 32px;
+     height: 32px;
+     font-size: 22px;
+   }
+   
+   .mobile-footer-icons {
+     gap: 24px !important;
+     margin-bottom: 25px !important;
+     padding: 15px 0 !important;
+   }
+   
+   .mobile-footer-icons img,
+   .mobile-footer-icons svg {
+     width: 28px !important;
+     height: 28px !important;
+   }
 }
 
 /* --- 319px (Very Small Phones) --- */
@@ -2682,41 +2757,43 @@ body.menu-open .telegram-float {
     }
 
     .mobile-menu {
-        padding: 25px 10px;
-    }
+     padding: 20px 8px;
+     gap: 16px;
+   }
+   
+   .mobile-menu > a {
+     font-size: 1.2rem;
+     width: 160px;
+     padding: 6px 0;
+   }
+   
+   .mobile-logo {
+     margin: 8px 0 18px;
+   }
+   
+   .mobile-logo img {
+     height: 55px;
+   }
+   
+   .menu-close {
+     top: 12px;
+     right: 12px;
+     width: 30px;
+     height: 30px;
+     font-size: 20px;
+   }
+   
+   .mobile-footer-icons {
+     gap: 20px !important;
+     margin-bottom: 20px !important;
+     padding: 12px 0 !important;
+   }
 
-    .mobile-logo {
-        margin: 15px 0 30px;
-    }
-
-    .mobile-logo img {
-        height: 55px;
-    }
-
-    .mobile-menu > a {
-        font-size: 1.2rem;
-        width: 170px;
-        padding: 10px 0;
-    }
-
-    .menu-close {
-        font-size: 24px;
-        width: 34px;
-        height: 34px;
-        top: 18px;
-        right: 18px;
-    }
-
-    .mobile-footer-icons {
-        gap: 24px !important;
-        padding: 15px 0 !important;
-    }
-
-    .mobile-footer-icons img,
-    .mobile-footer-icons svg {
-        width: 28px !important;
-        height: 28px !important;
-    }
+   .mobile-footer-icons img,
+   .mobile-footer-icons svg {
+     width: 26px !important;
+     height: 26px !important;
+   }
 
     .telegram-float {
         bottom: 20px;
