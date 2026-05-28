@@ -72,7 +72,7 @@ if (contactForm) {
   });
 }
 /* ========================================
-МАСКА ТЕЛЕФОНА +7 (___) ___-__-__ (ИСПРАВЛЕННАЯ)
+МАСКА ТЕЛЕФОНА +7 (___) ___-__-__
 ======================================== */
 const phoneInput = document.getElementById('phone');
 
@@ -85,7 +85,7 @@ if (phoneInput) {
     // Если начали с 8 — заменяем на 7
     if (digits.startsWith('8')) digits = '7' + digits.slice(1);
     // Если не начинается с 7 — добавляем
-    if (!digits.startsWith('7')) digits = '7' + digits;
+    if (!digits.startsWith('7') && digits.length > 0) digits = '7' + digits;
     
     // Ограничиваем до 11 цифр (7 + 10)
     digits = digits.slice(0, 11);
@@ -102,8 +102,16 @@ if (phoneInput) {
   
   // При вводе
   phoneInput.addEventListener('input', function(e) {
+    const cursorPosition = e.target.selectionStart;
+    const oldValue = e.target.value;
     const formatted = formatPhone(e.target.value);
+    
     e.target.value = formatted;
+    
+    // Пытаемся сохранить позицию курсора
+    if (cursorPosition < oldValue.length) {
+      e.target.setSelectionRange(cursorPosition, cursorPosition);
+    }
   });
   
   // При вставке
@@ -112,7 +120,6 @@ if (phoneInput) {
     const paste = (e.clipboardData || window.clipboardData).getData('text');
     const formatted = formatPhone(paste);
     e.target.value = formatted;
-    e.target.dispatchEvent(new Event('input'));
   });
   
   // При фокусе — если пустое, показываем +7
