@@ -27,13 +27,12 @@ if (contactForm) {
     if (!phone) { alert('Пожалуйста, введите ваш номер телефона.'); return; }
     
     // === Проверка телефона ===
-    const phoneDigits = phone.replace(/\D/g, ''); // Только цифры
+    const phoneDigits = phone.replace(/\D/g, ''); // Оставляем только цифры
     if (phoneDigits.length !== 11) {
       alert('Пожалуйста, введите полный номер: +7 (___) ___-__-__');
       phoneInput.focus();
       return;
     }
-    const phoneForSend = phoneDigits;
 
     // === Блокируем кнопку ===
     submitBtn.disabled = true;
@@ -41,13 +40,18 @@ if (contactForm) {
     
     try {
       // === Отправка на Formspree ===
+      const phoneForSend = phone.replace(/\D/g, '');
+
       const response = await fetch(contactForm.action, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-       body: JSON.stringify({ name, phone: phoneForSend })
+        body: JSON.stringify({ 
+          name: name, 
+          phone: phoneForSend // Только цифры: 79516696369
+        })
       });
       
       if (response.ok) {
