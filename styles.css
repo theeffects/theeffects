@@ -1249,6 +1249,24 @@ body.modal-open {
     right: 20px;
 }
 
+/* === ВИДЕО В СЛАЙДЕРЕ === */
+.slide-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px;
+  background: #000; /* Чёрный фон пока загружается */
+}
+
+/* Убираем стандартные контролы видео */
+.slide-video::-webkit-media-controls {
+  display: none !important;
+}
+
+.slide-video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
 
 /* ========================================
    13. ОПИСАНИЕ КЕЙСА (Case Description)
@@ -1911,6 +1929,9 @@ body.menu-open .telegram-float {
     .mobile-logo img {
         height: 75px;
     }
+  .slide-video {
+    border-radius: 14px;
+   }
 }
 
 /* --- 599px (Large Phones) --- */
@@ -2810,6 +2831,10 @@ body.menu-open .telegram-float {
 
     .telegram-tooltip {
         display: none;
+    }
+    
+    .slide-video {
+        border-radius: 12px;
     }
 }
 
