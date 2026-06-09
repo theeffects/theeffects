@@ -1278,12 +1278,11 @@ body.modal-open {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    min-height: 110px;
-    max-height: 110px;
+    min-height: 130px;
+    max-height: 130px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    overflow: hidden;
 }
 
 .case-description h3 {
@@ -1881,8 +1880,8 @@ body.menu-open .telegram-float {
 
     .case-description {
         margin-top: 17px !important;
-        min-height: 100px !important;
-        max-height: 100px !important;
+        min-height: 120px !important;
+        max-height: 120px !important;
         overflow: hidden;
     }
 
@@ -2046,13 +2045,13 @@ body.menu-open .telegram-float {
     }
 
     .case-description {
-        min-height: 95px !important;
-        max-height: 95px !important;
+        min-height: 110px !important;
+        max-height: 110px !important;
         margin-top: 15px !important;
     }
 
     .case-description h3 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
    .case-description p {
         font-size: 0.8rem;
@@ -2198,7 +2197,7 @@ body.menu-open .telegram-float {
 
     .case-description {
         min-height: 100px !important;
-        max-height: 90px !important;
+        max-height: 100px !important;
         margin-top: 15px !important;
     }
 
@@ -2385,8 +2384,8 @@ body.menu-open .telegram-float {
     }
 
     .case-description {
-        min-height: 140px !important;
-        max-height: 85px !important;
+        min-height: 95px !important;
+        max-height: 95px !important;
         margin-top: 12px !important;
     }
 
@@ -2711,8 +2710,8 @@ body.menu-open .telegram-float {
     }
 
     .case-description {
-        min-height: 120px !important;
-        max-height: 75px !important;
+        min-height: 90px !important;
+        max-height: 90px !important;
         margin-top: 10px !important;
         padding: 0 5px;
     }
