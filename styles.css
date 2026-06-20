@@ -2710,8 +2710,8 @@ body.menu-open .telegram-float {
     }
 
     .case-description {
-        min-height: 90px !important;
-        max-height: 90px !important;
+        min-height: 100px !important;
+        max-height: 100px !important;
         margin-top: 10px !important;
         padding: 0 5px;
     }
