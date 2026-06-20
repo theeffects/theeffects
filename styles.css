@@ -1279,7 +1279,7 @@ body.modal-open {
     margin-left: auto;
     margin-right: auto;
     min-height: 130px;
-    max-height: 130px;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
