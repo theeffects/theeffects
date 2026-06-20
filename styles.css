@@ -2048,6 +2048,7 @@ body.menu-open .telegram-float {
         min-height: 110px !important;
         max-height: 110px !important;
         margin-top: 15px !important;
+       overflow: hidden;
     }
 
     .case-description h3 {
@@ -2387,6 +2388,7 @@ body.menu-open .telegram-float {
         min-height: 95px !important;
         max-height: 95px !important;
         margin-top: 12px !important;
+       overflow: hidden;
     }
 
     .case-description h3 {
@@ -2713,6 +2715,7 @@ body.menu-open .telegram-float {
         min-height: 80px !important;
         max-height: 80px !important;
         margin-top: 10px !important;
+        overflow: hidden;
         padding: 0 5px;
     }
 
