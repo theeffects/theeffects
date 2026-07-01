@@ -1935,6 +1935,12 @@ body.menu-open .telegram-float {
 
 /* --- 599px (Large Phones) --- */
 @media (max-width: 599px) {
+   .process-section h2 {
+     font-size: 1.7rem;
+   }
+   .process-subtitle {
+      font-size: 1.0rem;
+  }
   .about {
     padding: 60px 0;
   }
@@ -2102,6 +2108,13 @@ body.menu-open .telegram-float {
 
 /* --- 413px (Medium Phones) --- */
 @media (max-width: 413px) {
+   .process-section h2 {
+     font-size: 1.6rem;
+     margin-bottom: 25px;
+   }
+   .process-subtitle {
+      font-size: 0.95rem;
+  }
   .process-section { padding: 50px 0; }
   .process-card { flex-direction: column; text-align: center; gap: 15px; }
   .process-icon { margin: 0 auto 10px; }
@@ -2267,6 +2280,12 @@ body.menu-open .telegram-float {
 
 /* --- 374px (Small Phones) --- */
 @media (max-width: 374px) {
+   .process-section h2 {
+      font-size: 1.5rem;
+   }
+   .process-subtitle {
+      font-size: 0.9rem;
+  }
    .about {
     padding: 45px 0;
   }
@@ -2472,6 +2491,12 @@ body.menu-open .telegram-float {
 
 /* --- 319px (Very Small Phones) --- */
 @media (max-width: 319px) {
+   .process-section h2 {
+      font-size: 1.4rem;
+   }
+   .process-subtitle {
+      font-size: 0.85rem;
+  }
    .about {
     padding: 40px 0;
   }
