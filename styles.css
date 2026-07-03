@@ -1792,6 +1792,9 @@ body.menu-open .telegram-float {
 
 /* --- 768px (Mobile Standard) --- */
 @media (max-width: 768px) {
+   .process-section h2 {
+     font-size: 1.9rem;
+   }
      .reviews {
     padding: 0px 0;
   }
