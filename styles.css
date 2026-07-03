@@ -1724,6 +1724,9 @@ body.menu-open .telegram-float {
 
 /* --- 900px (Tablet) --- */
 @media (max-width: 900px) {
+   .reviews-grid {
+    grid-template-columns: 1fr;
+  }
    /* Скрываем стрелочки и линию на планшетах и телефонах */
   .process-arrow { display: none; }
   .process-steps-wrapper::before { display: none; }
@@ -1789,6 +1792,36 @@ body.menu-open .telegram-float {
 
 /* --- 768px (Mobile Standard) --- */
 @media (max-width: 768px) {
+     .reviews {
+    padding: 60px 0;
+  }
+  
+  .reviews h2 {
+    font-size: 1.9rem;
+  }
+  
+  .reviews-subtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+  
+  .review-card {
+    padding: 25px;
+  }
+  
+  .review-avatar {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+  }
+  
+  .review-author-name {
+    font-size: 1.05rem;
+  }
+  
+  .review-text {
+    font-size: 0.9rem;
+  }
    .about {
     padding: 70px 0;
   }
@@ -2045,6 +2078,25 @@ body.menu-open .telegram-float {
 
 /* --- 599px (Large Phones) --- */
 @media (max-width: 599px) {
+     .reviews {
+    padding: 50px 0;
+  }
+  
+  .reviews h2 {
+    font-size: 1.7rem;
+  }
+  
+  .review-card {
+    padding: 22px;
+  }
+  
+  .review-stars {
+    font-size: 1rem;
+  }
+  
+  .review-text {
+    font-size: 0.85rem;
+  }
    .process-section h2 {
      font-size: 1.7rem;
    }
@@ -2218,6 +2270,50 @@ body.menu-open .telegram-float {
 
 /* --- 413px (Medium Phones) --- */
 @media (max-width: 413px) {
+     .reviews {
+    padding: 45px 0;
+  }
+  
+  .reviews h2 {
+    font-size: 1.6rem;
+  }
+  
+  .reviews-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 35px;
+  }
+  
+  .review-card {
+    padding: 20px;
+  }
+  
+  .review-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .review-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+  
+  .review-author-name {
+    font-size: 1rem;
+  }
+  
+  .review-date {
+    font-size: 0.8rem;
+  }
+  
+  .review-services {
+    font-size: 0.85rem;
+  }
+  
+  .review-text {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
    .process-section h2 {
      font-size: 1.6rem;
      margin-bottom: 25px;
@@ -2390,6 +2486,27 @@ body.menu-open .telegram-float {
 
 /* --- 374px (Small Phones) --- */
 @media (max-width: 374px) {
+     .reviews {
+    padding: 40px 0;
+  }
+  
+  .reviews h2 {
+    font-size: 1.5rem;
+  }
+  
+  .review-card {
+    padding: 18px;
+  }
+  
+  .review-avatar {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+  
+  .review-text {
+    font-size: 0.75rem;
+  }
    .process-section h2 {
       font-size: 1.5rem;
    }
@@ -2601,6 +2718,51 @@ body.menu-open .telegram-float {
 
 /* --- 319px (Very Small Phones) --- */
 @media (max-width: 319px) {
+     .reviews {
+    padding: 35px 0;
+  }
+  
+  .reviews h2 {
+    font-size: 1.4rem;
+  }
+  
+  .reviews-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+  }
+  
+  .review-card {
+    padding: 16px;
+    gap: 12px;
+  }
+  
+  .review-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+  
+  .review-author-name {
+    font-size: 0.95rem;
+  }
+  
+  .review-date {
+    font-size: 0.75rem;
+  }
+  
+  .review-stars {
+    font-size: 0.9rem;
+  }
+  
+  .review-services {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+  
+  .review-text {
+    font-size: 0.7rem;
+    line-height: 1.4;
+  }
    .process-section h2 {
       font-size: 1.4rem;
    }
