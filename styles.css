@@ -2002,7 +2002,9 @@ body.menu-open .telegram-float {
         margin-top: 20px;
         margin-bottom: 30px;
     }
-
+    .process-section {
+    padding: 70px 0 55px;
+   
     .slider {
         height: 350px;
     }
@@ -2038,7 +2040,7 @@ body.menu-open .telegram-float {
     }
 
     .contacts {
-        padding: 0 0 25px;
+        padding: 25px 0 25px;
     }
 
     .contacts h2 {
@@ -3040,7 +3042,7 @@ body.menu-open .telegram-float {
     }
 
     .contacts {
-        padding: 0 0 20px;
+        padding: 20px 0 20px;
     }
 
     .contacts h2 {
