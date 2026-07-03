@@ -1724,6 +1724,9 @@ body.menu-open .telegram-float {
 
 /* --- 900px (Tablet) --- */
 @media (max-width: 900px) {
+   .slider-btn {
+        display: none;
+    }
    .reviews-grid {
     grid-template-columns: 1fr;
   }
