@@ -2082,6 +2082,9 @@ body.menu-open .telegram-float {
   .slide-video {
     border-radius: 14px;
    }
+       .slider-btn {
+        display: none;
+    }
 }
 
 /* --- 599px (Large Phones) --- */
@@ -2274,6 +2277,9 @@ body.menu-open .telegram-float {
      height: 36px;
      font-size: 26px;
    }
+   .slider-btn {
+        display: none;
+    }
 }
 
 /* --- 413px (Medium Phones) --- */
@@ -2490,6 +2496,9 @@ body.menu-open .telegram-float {
      width: 30px !important;
      height: 30px !important;
    }
+   .slider-btn {
+        display: none;
+    }
 }
 
 /* --- 374px (Small Phones) --- */
@@ -2722,6 +2731,9 @@ body.menu-open .telegram-float {
      width: 28px !important;
      height: 28px !important;
    }
+   .slider-btn {
+        display: none;
+    }
 }
 
 /* --- 319px (Very Small Phones) --- */
